@@ -10,7 +10,7 @@ import { stopAction } from 'actions/stopAction';
 class App extends React.Component {
 
   render(){
-    console.log(props);
+    console.log(this.props);
 
   return (
 

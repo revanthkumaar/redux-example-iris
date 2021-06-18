@@ -1,5 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import logo from './logo.svg';
+import './App.css';
+//IMPORT ACTIONS 
+import {startAction} from 'actions/startAction';
+import { stopAction } from 'actions/stopAction';
+
 
 class App extends React.Component {
 
@@ -18,20 +24,10 @@ class App extends React.Component {
             }
             alt="logo"
             onClick={
-              () => this.props.rotateAction(!this.props.rotating)
+               this.props.rotating ? this.props.stopAction : this.props.startAction
             }
           />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+        
         </header>
       </div>
   );
@@ -46,9 +42,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  rotateAction: (payload) => dispatch(rotateAction(payload))
+  startAction: () => dispatch(startAction),
+  stopAction: () => dispatch(stopAction)
 })
-
-
 
 export default connect(mapStateToProps,mapDispatchToProps)(App);

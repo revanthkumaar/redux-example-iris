@@ -1,7 +1,4 @@
-
-
 export default (state,action) => {
-
     switch(action.type) {
         case "START_ACTION":
             return{
@@ -14,6 +11,4 @@ export default (state,action) => {
         default:
             return state;
     }
-
-
 }
